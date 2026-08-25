@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Выбор вечера</title>
+
+  <link rel="stylesheet" href="yes_style.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- Экран 2 -->
+    <section class="screen active" id="screen2">
+      <div class="card">
+        <div class="media-placeholder" id="choiceVisual">screen</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Выбор настроения</h1>
+          <p class="subtitle">Что хочется сегодня?</p>
+
+          <div class="btn-row">
+            <button class="ghost" data-go="3A" data-media="https://drive.google.com/file/d/1wurIpz9uJoq2UAOYdxomeQX9SkmHoL3C/view?usp=sharing">Хочу в тепло</button>
+            <button class="ghost" data-go="3B" data-media="https://drive.google.com/file/d/1in4570CV88esTMJUCt_tYtXeUVHtQFXP/view?usp=sharing">Хочу прогуляться...</button>
+            <button class="ghost" data-go="3G" data-media="https://drive.google.com/file/d/1fT_K81KdZqpL8JImy5wVvjHv8quPE8UM/view?usp=sharing">Хочу погладить милашек</button>
+          </div>
+
+          <div class="placeholder-word" id="mediaLabel">screen</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3А -->
+    <section class="screen" id="screen3A">
+      <div class="card">
+        <div class="media-placeholder"></div>
+        <div class="overlay">https://drive.google.com/file/d/1wurIpz9uJoq2UAOYdxomeQX9SkmHoL3C/view?usp=sharing</div>
+
+        <div class="content">
+          <h1 class="title">вери вери hungry?</h1>
+          <p class="subtitle">Выбирай настроение животика</p>
+
+          <div class="btn-row">
+            <button class="ghost" id="hungryYes">Да</button>
+            <button class="ghost" id="hungryNo">Нет</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3А1 -->
+    <section class="screen" id="screen3A1">
+      <div class="card">
+        <div class="media-placeholder" id="placeA1">https://drive.google.com/file/d/1h7vAEtPc48sx2vIl_oWF-idzQicZLVr9/view?usp=sharing / https://drive.google.com/file/d/1cBKRZLJvrp4aaDFbJz2bqHZGS1Zl05Ka/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Выбери локацию</h1>
+          <p class="subtitle">Если hungry, надо срочно спасать ситуацию</p>
+
+          <div class="grid">
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/1h7vAEtPc48sx2vIl_oWF-idzQicZLVr9/view?usp=sharing">Ресторан, кафе</button>
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/1cBKRZLJvrp4aaDFbJz2bqHZGS1Zl05Ka/view?usp=sharing">Кальянная, бар</button>
+          </div>
+
+          <div class="placeholder-word">https://drive.google.com/file/d/1h7vAEtPc48sx2vIl_oWF-idzQicZLVr9/view?usp=sharing / https://drive.google.com/file/d/1cBKRZLJvrp4aaDFbJz2bqHZGS1Zl05Ka/view?usp=sharing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3А2 -->
+    <section class="screen" id="screen3A2">
+      <div class="card">
+        <div class="media-placeholder">https://drive.google.com/file/d/1gGaZoCV3tv8yGnw1Dr_rm-iB-vq1x2ps/view?usp=sharing / https://drive.google.com/file/d/1PDyyB9gVRhQnplYPtrL9axTByF7DaozL/view?usp=sharing / https://drive.google.com/file/d/1pzs0RPEacNNgmIvLdOux5RBbsDob2qV4/view?usp=sharing / https://drive.google.com/file/d/15nZSHklLJ1cvvYVv8c_KOc840tDXdr-Y/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Тогда выбираем впечатления</h1>
+          <p class="subtitle">Куда пойдём?</p>
+
+          <div class="grid">
+            <button class="ghost" data-go="5" data-media="https://drive.google.com/file/d/1gGaZoCV3tv8yGnw1Dr_rm-iB-vq1x2ps/view?usp=sharing">Театр</button>
+            <button class="ghost" data-go="6" data-media="https://drive.google.com/file/d/1PDyyB9gVRhQnplYPtrL9axTByF7DaozL/view?usp=sharing">Балет</button>
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/1pzs0RPEacNNgmIvLdOux5RBbsDob2qV4/view?usp=sharing">Игровая</button>
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/15nZSHklLJ1cvvYVv8c_KOc840tDXdr-Y/view?usp=sharing">ТЦ</button>
+          </div>
+
+          <div class="placeholder-word">https://drive.google.com/file/d/1gGaZoCV3tv8yGnw1Dr_rm-iB-vq1x2ps/view?usp=sharing / https://drive.google.com/file/d/1PDyyB9gVRhQnplYPtrL9axTByF7DaozL/view?usp=sharing / https://drive.google.com/file/d/1pzs0RPEacNNgmIvLdOux5RBbsDob2qV4/view?usp=sharing / https://drive.google.com/file/d/15nZSHklLJ1cvvYVv8c_KOc840tDXdr-Y/view?usp=sharing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3Б -->
+    <section class="screen" id="screen3B">
+      <div class="card">
+        <div class="media-placeholder">https://drive.google.com/file/d/16OKq4Q9sSPnYf3Oo-qVRrlI-CDWWT3e9/view?usp=sharing / https://drive.google.com/file/d/1NPbn8JRP4-QKJ1dGveird7fCdPLb2aPr/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Где прогуляемся?</h1>
+          <p class="subtitle">Свежий воздух, разговоры и красивое настроение</p>
+
+          <div class="grid">
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/16OKq4Q9sSPnYf3Oo-qVRrlI-CDWWT3e9/view?usp=sharing">Ботанический сад</button>
+            <button class="ghost" id="parkBtn" data-media="https://drive.google.com/file/d/1NPbn8JRP4-QKJ1dGveird7fCdPLb2aPr/view?usp=sharing">Парк</button>
+          </div>
+
+          <div class="placeholder-word">https://drive.google.com/file/d/16OKq4Q9sSPnYf3Oo-qVRrlI-CDWWT3e9/view?usp=sharing / https://drive.google.com/file/d/1NPbn8JRP4-QKJ1dGveird7fCdPLb2aPr/view?usp=sharing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3В-1 -->
+    <section class="screen" id="screen3B1">
+      <div class="card">
+        <div class="media-placeholder">https://drive.google.com/file/d/1NPbn8JRP4-QKJ1dGveird7fCdPLb2aPr/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Выбери парк</h1>
+          <p class="subtitle">Парк — это всегда хороший план</p>
+
+          <div class="grid">
+            <button class="ghost" data-go="4">Горсовет</button>
+            <button class="ghost" data-go="4">Якутова</button>
+            <button class="ghost" data-go="4">Кашкадан</button>
+            <button class="ghost" data-go="4">Победы</button>
+            <button class="ghost" data-go="4">Лесоводов</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3Г -->
+    <section class="screen" id="screen3G">
+      <div class="card">
+        <div class="media-placeholder">https://drive.google.com/file/d/1kVD8KUb9dVegFtJad20Pf2J_t2Q7XcH3/view?usp=sharing / https://drive.google.com/file/d/1NX2G0NtOvBRwuLlCP2oWD4KYkBTlnxiX/view?usp=sharing / https://drive.google.com/file/d/1dNdT7zKJSTTTnjCR29-OfFyQYP5m3NAH/view?usp=sharing / https://drive.google.com/file/d/1RGal62eO4XauuzbSJBNeR_2G0lpLiEM0/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Милашки</h1>
+          <p class="subtitle">Кого идём гладить?</p>
+
+          <div class="grid">
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/1kVD8KUb9dVegFtJad20Pf2J_t2Q7XcH3/view?usp=sharing">Парк альпак</button>
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/1NX2G0NtOvBRwuLlCP2oWD4KYkBTlnxiX/view?usp=sharing">Лошади</button>
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/1dNdT7zKJSTTTnjCR29-OfFyQYP5m3NAH/view?usp=sharing">Лесное посольство</button>
+            <button class="ghost" data-go="4" data-media="https://drive.google.com/file/d/1RGal62eO4XauuzbSJBNeR_2G0lpLiEM0/view?usp=sharing">Котейная</button>
+          </div>
+
+          <div class="placeholder-word">https://drive.google.com/file/d/1kVD8KUb9dVegFtJad20Pf2J_t2Q7XcH3/view?usp=sharing / https://drive.google.com/file/d/1NX2G0NtOvBRwuLlCP2oWD4KYkBTlnxiX/view?usp=sharing / https://drive.google.com/file/d/1dNdT7zKJSTTTnjCR29-OfFyQYP5m3NAH/view?usp=sharing / https://drive.google.com/file/d/1RGal62eO4XauuzbSJBNeR_2G0lpLiEM0/view?usp=sharing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 4 -->
+    <section class="screen" id="screen4">
+      <div class="card">
+        <div class="media-placeholder">https://drive.google.com/file/d/1Z8YG9hsA8j6Evw6rbeROfNYyrxh0gGed/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Сможем выбрать время?)</h1>
+          <p class="subtitle">Черный котик листает календарь, рыжий щенок выбирает время</p>
+
+          <div class="animals-row">
+            <div class="animal-box">
+              <span class="animal cat">🐈‍⬛</span>
+              <strong>Календарь</strong>
+            </div>
+
+            <div class="animal-box">
+              <span class="animal dog">🐕</span>
+              <strong>Время</strong>
+            </div>
+          </div>
+
+          <div class="calendar" id="calendar4"></div>
+          <div class="time-row" id="time4"></div>
+
+          <button class="primary hidden" id="confirm4">Подтвердить</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 5 -->
+    <section class="screen" id="screen5">
+      <div class="card">
+        <div class="media-placeholder">https://drive.google.com/file/d/1Z8YG9hsA8j6Evw6rbeROfNYyrxh0gGed/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Сможем выбрать время?)</h1>
+          <p class="subtitle">Для театра доступно время 18:00</p>
+
+          <div class="animals-row">
+            <div class="animal-box">
+              <span class="animal cat">🐈‍⬛</span>
+              <strong>Календарь</strong>
+            </div>
+
+            <div class="animal-box">
+              <span class="animal dog">🐕</span>
+              <strong>18:00</strong>
+            </div>
+          </div>
+
+          <div class="calendar" id="calendar5"></div>
+          <div class="time-row" id="time5"></div>
+
+          <button class="primary hidden" id="confirm5">Подтвердить</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 6 -->
+    <section class="screen" id="screen6">
+      <div class="card">
+        <div class="media-placeholder">https://drive.google.com/file/d/1Z8YG9hsA8j6Evw6rbeROfNYyrxh0gGed/view?usp=sharing</div>
+        <div class="overlay"></div>
+
+        <div class="content">
+          <h1 class="title">Сможем выбрать время?)</h1>
+          <p class="subtitle">Для балета доступно время 17:00</p>
+
+          <div class="animals-row">
+            <div class="animal-box">
+              <span class="animal cat">🐈‍⬛</span>
+              <strong>Календарь</strong>
+            </div>
+
+            <div class="animal-box">
+              <span class="animal dog">🐕</span>
+              <strong>17:00</strong>
+            </div>
+          </div>
+
+          <div class="calendar" id="calendar6"></div>
+          <div class="time-row" id="time6"></div>
+
+          <button class="primary hidden" id="confirm6">Подтвердить</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 7 -->
+    <section class="screen" id="screen7">
+      <div class="card final-card">
+        <div class="media-placeholder final-bg">https://drive.google.com/file/d/1ZoCEMrA4xQzSnTsMpTNZWZQrdwGULPms/view?usp=sharing</div>
+        <div class="final-blackout"></div>
+
+        <div class="final-animation">
+          <div class="big-placeholder">https://drive.google.com/file/d/1ZoCEMrA4xQzSnTsMpTNZWZQrdwGULPms/view?usp=sharing</div>
+        </div>
+
+        <div class="content final-content">
+          <h1 class="title">Готово</h1>
+          <p class="subtitle">Черный котик всё согласовал</p>
+
+          <button class="primary" id="sendInviteBtn">Отправить приглашение</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const screens = Array.from(document.querySelectorAll(".screen"));
+
+    function go(id) {
+      screens.forEach(screen => {
+        screen.classList.remove("active");
+      });
+
+      const target = document.getElementById("screen" + id);
+
+      if (target) {
+        target.classList.add("active");
+      }
+    }
+
+    const mediaLabel = document.getElementById("mediaLabel");
+    const choiceVisual = document.getElementById("choiceVisual");
+
+    document.querySelectorAll("[data-go]").forEach(button => {
+      button.addEventListener("click", () => {
+        const media = button.dataset.media;
+        const target = button.dataset.go;
+
+        if (mediaLabel && media) {
+          mediaLabel.textContent = media;
+        }
+
+        if (choiceVisual && media) {
+          choiceVisual.textContent = media;
+        }
+
+        go(target);
+      });
+    });
+
+    document.getElementById("hungryYes").addEventListener("click", () => {
+      go("3A1");
+    });
+
+    document.getElementById("hungryNo").addEventListener("click", () => {
+      go("3A2");
+    });
+
+    document.getElementById("parkBtn").addEventListener("click", () => {
+      go("3B1");
+    });
+
+    function buildPicker(calendarId, timeId, confirmId, dates, times, nextScreen) {
+      const calendar = document.getElementById(calendarId);
+      const timeRow = document.getElementById(timeId);
+      const confirm = document.getElementById(confirmId);
+
+      let selectedDate = false;
+      let selectedTime = times.length === 1;
+
+      dates.forEach(date => {
+        const item = document.createElement("button");
+        item.className = "tag";
+        item.textContent = date;
+
+        item.addEventListener("click", () => {
+          Array.from(calendar.children).forEach(child => {
+            child.classList.remove("selected");
+          });
+
+          item.classList.add("selected");
+          selectedDate = true;
+
+          if (selectedDate && selectedTime) {
+            confirm.classList.remove("hidden");
+          }
+        });
+
+        calendar.appendChild(item);
+      });
+
+      times.forEach(time => {
+        const item = document.createElement("button");
+        item.className = "tag";
+        item.textContent = time;
+
+        if (times.length === 1) {
+          item.classList.add("selected");
+        }
+
+        item.addEventListener("click", () => {
+          Array.from(timeRow.children).forEach(child => {
+            child.classList.remove("selected");
+          });
+
+          item.classList.add("selected");
+          selectedTime = true;
+
+          if (selectedDate && selectedTime) {
+            confirm.classList.remove("hidden");
+          }
+        });
+
+        timeRow.appendChild(item);
+      });
+
+      confirm.addEventListener("click", () => {
+        go(nextScreen);
+      });
+    }
+
+    buildPicker(
+      "calendar4",
+      "time4",
+      "confirm4",
+      ["Дата 1", "Дата 2", "Дата 3"],
+      ["18:00", "19:00", "20:00"],
+      "7"
+    );
+
+    buildPicker(
+      "calendar5",
+      "time5",
+      "confirm5",
+      [
+        "29 августа",
+        "4 сентября",
+        "5 сентября",
+        "6 сентября",
+        "13 сентября",
+        "16 сентября",
+        "18 сентября",
+        "19 сентября",
+        "20 сентября"
+      ],
+      ["18:00"],
+      "7"
+    );
+
+    buildPicker(
+      "calendar6",
+      "time6",
+      "confirm6",
+      ["10 сентября", "11 сентября"],
+      ["17:00"],
+      "7"
+    );
+
+    document.getElementById("sendInviteBtn").addEventListener("click", () => {
+      alert("Приглашение отправлено!");
+    });
+  </script>
+</body>
+</html>
