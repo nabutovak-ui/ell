@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Приглашение</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="invite-page">
+    <section class="card">
+      <div class="shine"></div>
+
+      <div class="content">
+        <h1>Разделишь со мной вечер?</h1>
+        <p>Выбери ответ. Хотя правильный уже очевиден.</p>
+
+        <div class="buttons">
+          <button class="yes-btn" id="yesBtn">Да</button>
+          <button class="no-btn" id="noBtn">Нет</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    function createConfetti(x, y) {
+      const colors = ["#ffd76f", "#ff7eb8", "#fff0b8", "#ffb1dd"];
+
+      for (let i = 0; i < 55; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+
+        piece.style.left = x + "px";
+        piece.style.top = y + "px";
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.setProperty("--dx", Math.random() * 300 - 150 + "px");
+        piece.style.setProperty("--dy", Math.random() * 300 - 190 + "px");
+        piece.style.setProperty("--rot", Math.random() * 800 - 400 + "deg");
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 1300);
+      }
+    }
+
+    yesBtn.addEventListener("click", function(event) {
+      createConfetti(event.clientX, event.clientY);
+
+      const audio = new Audio("ting.mp3");
+      audio.volume = 0.22;
+      audio.play().catch(() => {});
+
+      yesBtn.style.transition = "transform 0.42s ease, opacity 0.42s ease";
+      yesBtn.style.transform = "scale(0)";
+      yesBtn.style.opacity = "0";
+
+      setTimeout(() => {
+        window.location.href = "yes.html";
+      }, 520);
+    });
+
+    let duckActive = false;
+    let duckX = 0;
+    let duckY = 0;
+    let duckVX = 0;
+    let duckVY = 0;
+    let duckRotation = 0;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let animationFrame;
+
+    document.addEventListener("mousemove", function(event) {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+    });
+
+    function animateDuck() {
+      if (!duckActive) return;
+
+      const dx = duckX - mouseX;
+      const dy = duckY - mouseY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 180) {
+        const force = (180 - distance) / 180;
+        const angle = Math.atan2(dy, dx);
+
+        duckVX += Math.cos(angle) * force * 2.2;
+        duckVY += Math.sin(angle) * force * 2.2;
+
+        duckVX += (Math.random() - 0.5) * 1.3;
+        duckVY += (Math.random() - 0.5) * 1.3;
+      }
+
+      duckVY -= 0.04;
+
+      duckVX *= 0.992;
+      duckVY *= 0.992;
+
+      duckX += duckVX;
+      duckY += duckVY;
+
+      duckRotation += duckVX * 2.4;
+
+      noBtn.style.left = duckX + "px";
+      noBtn.style.top = duckY + "px";
+      noBtn.style.transform = `rotate(${duckRotation}deg)`;
+
+      animationFrame = requestAnimationFrame(animateDuck);
+    }
+
+    noBtn.addEventListener("click", function() {
+      if (duckActive) return;
+
+      const rect = noBtn.getBoundingClientRect();
+
+      duckX = rect.left;
+      duckY = rect.top;
+
+      noBtn.textContent = "черная утка";
+      noBtn.classList.add("duck-mode");
+
+      noBtn.style.left = duckX + "px";
+      noBtn.style.top = duckY + "px";
+
+      duckVX = 9;
+      duckVY = -12;
+      duckRotation = 0;
+      duckActive = true;
+
+      animateDuck();
+
+      setTimeout(() => {
+        duckVX = 22;
+        duckVY = -26;
+
+        const message = document.createElement("div");
+        message.className = "floating-message";
+        message.textContent = "Я всё равно тебя найду";
+        document.body.appendChild(message);
+
+        setTimeout(() => {
+          duckActive = false;
+          cancelAnimationFrame(animationFrame);
+          window.location.href = "yes.html";
+        }, 1200);
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
